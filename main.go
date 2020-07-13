@@ -12,6 +12,7 @@ import (
 	"strconv"
 	"syscall"
 	_ "github.com/lib/pq"
+	"github.com/gin-contrib/cors"
 )
 
 var pgRepository *repository.Repository
@@ -20,6 +21,7 @@ func main() {
 	initDb()
 
 	r := gin.New()
+	r.Use(cors.Default())
 
 	api := r.Group("/api")
 
