@@ -21,7 +21,10 @@ func main() {
 	initDb()
 
 	r := gin.New()
-	r.Use(cors.Default())
+        config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://localhost:8080"}
+	r.Use(cors.New(config))
+	//r.Use(cors.Default())
 
 	api := r.Group("/api")
 
