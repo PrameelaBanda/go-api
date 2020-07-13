@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"syscall"
 	_ "github.com/lib/pq"
-	"github.com/gin-contrib/cors"
+	cors "github.com/rs/cors/wrapper/gin"
 )
 
 var pgRepository *repository.Repository
@@ -21,10 +21,7 @@ func main() {
 	initDb()
 
 	r := gin.New()
-        config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://localhost:8080"}
-	r.Use(cors.New(config))
-	//r.Use(cors.Default())
+        r.Use(cors.AllowAll())
 
 	api := r.Group("/api")
 
