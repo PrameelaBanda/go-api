@@ -78,7 +78,7 @@ func (r Repository) GetOrder(orderName string) (*models.OrdersResponse, error) {
 	order := models.OrdersResponse{}
 	var query = "select o.order_name, cc.company_name, c.name, o.created_at, d.delivered_quantity*oi.price_per_unit as delivered_amount, oi.quantity*oi.price_per_unit as total_amount " +
 		"from order_items oi, orders o, deliveries d, customer_companies cc, customers c " +
-		"where oi.order_id = o.id and o.customer_id = c.user_id and c.company_id = cc.company_id and d.order_item = oi.order_id" +
+		"where oi.order_id = o.id and o.customer_id = c.user_id and c.company_id = cc.company_id and d.order_item = oi.order_id " +
 		"and o.order_name = $1;"
 
 	row := r.DB.QueryRow(query, orderName)
