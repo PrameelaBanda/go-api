@@ -1,0 +1,37 @@
+insert into orders values (1,	'02/01/2020',	'PO #001-I',	'ivan');
+insert into orders values (2,	'01/15/2020',	'PO #001-I',	'ivan');
+insert into orders values (3,	'05/01/2020',	'PO #001-I',	'ivan');
+insert into orders values (4,	'02/02/2020',	'PO #001-I',	'ivan');
+insert into orders values (5,	'03/01/2020',	'PO #001-I',	'ivan');
+insert into orders values (6,	'02/01/2020',	'PO #001-P',	'petr');
+insert into orders values (7,	'01/15/2020',	'PO #002-P',	'petr');
+insert into orders values (8,	'05/01/2020',	'PO #003-P',	'petr');
+insert into orders values (9,	'02/02/2020',	'PO #004-P',	'petr');
+insert into orders values (10,	'03/01/2020',	'PO #005-P',	'petr');
+
+select * from orders;
+
+insert into order_items values (1,	1,	1.3454,	10,	'Corrugated Box');
+insert into order_items values (2,	2,	23.14,	11,	'Corrugated Box');
+insert into order_items values (11,	1,	45.2334,	20,	'Hand sanitizer');
+insert into order_items values (12,	2,		21,	0,'Hand sanitizer');
+
+select * from order_items;
+
+insert into deliveries values (1,	1,	5);
+insert into deliveries values (2,	2,	11);
+insert into deliveries values (11, 19, 28);
+insert into deliveries values (12, 20, 29);
+
+select * from deliveries;
+
+insert into customers values ('ivan',	'ivan',	12345,	'Ivan Ivanovich',	1,	ARRAY['1234-1234', '5678-5678']);
+insert into customers values ('petr',	'petr',	54321,	'Petr Petrovich',	2,	ARRAY['4321-4321', '8765-8765']);
+
+select * from customers;
+
+insert into customer_companies values (1,	'Roga & Kopyta');
+insert into customer_companies values (2, 'Pupkin & Co');
+
+
+select * from customer_companies;
