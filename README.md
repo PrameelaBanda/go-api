@@ -5,9 +5,9 @@ DATABASE:
 - Run Postgres in local 
 - Run the scripts `db_scripts.sql` and `insert_scripts.sql` for data setup
 
-DockerRun:
-- Build docker image with the command `docker build -t go-api`
-- Then run the docker image created in first step as `docker run <docker-image>`
+Run in local:
+- Clone the repo in the local
+- Then run the command `go run main.go`
 
 API:
 Run the api with the header token `Token` and value `hunter2` to authorize the api
