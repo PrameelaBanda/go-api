@@ -21,7 +21,7 @@ func main() {
 	initDb()
 
 	r := gin.New()
-        r.Use(cors.AllowAll())
+	r.Use(cors.AllowAll())
 
 	api := r.Group("/api")
 
@@ -35,6 +35,7 @@ func main() {
 
 	v1.GET("/orders", handlers.HandleListOrders(pgRepository))
 	v1.GET("/orders/:orderName", handlers.HandleGetOrder(pgRepository))
+	v1.POST("/data/:fileName", handlers.HandlePostData(pgRepository))
 
 	sigc := make(chan os.Signal, 1)
 	signal.Notify(sigc,
@@ -67,7 +68,6 @@ func initDb() {
 		DBName:     pkg.GetEnvOrDefault("DB_NAME", "postgres"),
 		DBUsername: pkg.GetEnvOrDefault("DB_USER", "postgres"),
 		DBPassword: pkg.GetEnvOrDefault("DB_PASSWORD", "hunter2"),
-		Table:      pkg.GetEnvOrDefault("DB_TABLE", "pods"),
 	}
 
 	err := pgRepository.Init()
