@@ -1,10 +1,10 @@
-package pkg
+package response
 
-type OrdersPayload struct {
-OrderName       string `json:"OrderName"`
-CustomerCompany string `json:"CustomerCompany"`
-CustomerName    string  `json:"CustomerName"`
-OrderDate       string  `json:"OrderDate"`
-DeliveredAmount float32 `json:"DeliveredAmount"`
-TotalAmount     float32 `json:"TotalAmount"`
+type OrdersResponse struct {
+	OrderName       string
+	CustomerCompany string
+	CustomerName    string
+	OrderDate       string
+	DeliveredAmount float32
+	TotalAmount     float32
 }
